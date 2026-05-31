@@ -1,0 +1,391 @@
+/* =========================
+   SIPHIMINENHLE PTY LTD
+   CLEAN PRODUCTION CSS
+========================= */
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.7;
+    color: #333;
+    background-color: #fff;
+}
+
+/* CONTAINER */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* LINKS */
+a {
+    text-decoration: none;
+}
+
+/* =========================
+   HEADER (ALL PAGES CONSISTENT + FIXED)
+========================= */
+
+header {
+    background: #0F2744;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    /* ✅ IMPORTANT FIX */
+    transform: translateY(0);
+    transition: transform 0.35s ease, box-shadow 0.3s ease;
+    will-change: transform;
+}
+
+/* hidden state */
+.header-hidden {
+    transform: translateY(-100%);
+}
+
+/* layout */
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LOGO */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.03);
+}
+
+.logo h2 {
+    color: #1AA39A;
+    font-size: 2rem;
+}
+
+.logo span {
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* NAV */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav a {
+    color: white;
+    font-weight: bold;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    color: #1AA39A;
+    transform: translateY(-2px);
+}
+
+/* ACTIVE LINK */
+nav ul li a.active {
+    color: #1AA39A;
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+nav ul li a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background: #1AA39A;
+    border-radius: 2px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    background: linear-gradient(rgba(15,39,68,0.8), rgba(15,39,68,0.8)),
+    url("images/hero.jpg");
+
+    background-size: cover;
+    background-position: center;
+    min-height: 80vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    color: white;
+    padding: 40px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.btn {
+    display: inline-block;
+    background: #1AA39A;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    background: #14877f;
+    transform: translateY(-3px);
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    color: #0F2744;
+    font-size: 2.2rem;
+}
+
+/* =========================
+   CARDS SYSTEM (FIXED)
+========================= */
+
+/* safe default visibility (prevents disappearing issue) */
+.service-card,
+.feature,
+.contact-item,
+.contact-card {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* animation class */
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* hover system unified */
+.service-card,
+.feature,
+.contact-item,
+.contact-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* hover effect */
+.service-card:hover,
+.feature:hover,
+.contact-item:hover,
+.contact-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+/* =========================
+   SERVICES
+========================= */
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.service-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    border-top: 5px solid #1AA39A;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.feature {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* =========================
+   CONTACT (PAGE + CARDS FIX)
+========================= */
+
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+/* contact page cards */
+.contact-card {
+    display: block;
+    background: #f4f4f4;
+    padding: 30px;
+    border-radius: 12px;
+    border-left: 5px solid #1AA39A;
+    color: inherit;
+
+    /* FIX: animation base state */
+    opacity: 0;
+    transform: translateY(25px);
+
+    /* smooth animation */
+    transition: 
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        opacity 0.7s ease;
+}
+
+/* FIX: visible state (works with your JS "show" class) */
+.contact-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* FIX: hover animation (same feel as other cards) */
+.contact-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    background: #eef6f6;
+}
+
+/* optional: slight text polish consistency */
+.contact-card h2 {
+    color: #0F2744;
+    margin-bottom: 8px;
+}
+
+.contact-card p {
+    color: #444;
+    margin: 0;
+}
+
+/* =========================
+   FLOATING BUTTONS
+========================= */
+
+.float {
+    position: fixed;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    color: white;
+    z-index: 9999;
+    transition: 0.25s ease;
+}
+
+.float:hover {
+    transform: scale(1.15);
+}
+
+.call {
+    bottom: 20px;
+    right: 20px;
+    background: #1AA39A;
+}
+
+.whatsapp {
+    bottom: 90px;
+    right: 20px;
+    background: #25D366;
+}
+
+.email {
+    bottom: 20px;
+    right: 90px;
+    background: #0F2744;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #08182b;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+}
+
+/* SMOOTH SCROLL */
+html {
+    scroll-behavior: smooth;
+}
